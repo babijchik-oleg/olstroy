@@ -1,68 +1,28 @@
-import Image from 'next/image';
-import styles from './page.module.css';
+import Link from 'next/link';
 
 export default function Home() {
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className={styles.intro}>
-          <h1>
-            Olstroy <code className={styles.code}>page.tsx</code> file.
-          </h1>
-          <p>
-            Looking for a starting point or more instructions? Head over to{' '}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Templates
-            </a>{' '}
-            or the{' '}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Learning
-            </a>{' '}
-            center.
-          </p>
-        </div>
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className={styles.secondary}
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
-    </div>
+    <main className="flex flex-1 flex-col items-center justify-center px-4 py-16 text-center">
+      <h1 className="text-4xl font-bold text-gray-900 md:text-5xl">
+        Ol<span className="font-light">Stroy</span>
+      </h1>
+      <p className="mt-6 max-w-xl text-lg text-gray-600">
+        Строительная компания. Ремонт, отделка и строительство под ключ.
+      </p>
+      <div className="mt-10 flex flex-col gap-4 sm:flex-row">
+        <Link
+          href="/catalog"
+          className="rounded-lg bg-blue-600 px-8 py-3 font-medium text-white shadow transition-colors hover:bg-blue-700"
+        >
+          Каталог работ
+        </Link>
+        <Link
+          href="/price"
+          className="rounded-lg border border-gray-300 px-8 py-3 font-medium text-gray-800 transition-colors hover:bg-gray-100"
+        >
+          Цены
+        </Link>
+      </div>
+    </main>
   );
 }

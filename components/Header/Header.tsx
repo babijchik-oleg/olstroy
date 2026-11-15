@@ -31,6 +31,9 @@ export default function Header() {
           <Link href="/catalog" className={styles.navLink}>
             Catalog
           </Link>
+          <Link href="/price" className={styles.navLink}>
+            Price
+          </Link>
         </nav>
       </div>
     </header>
