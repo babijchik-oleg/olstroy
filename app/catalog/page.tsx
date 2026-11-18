@@ -2,8 +2,9 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
-// Импортируем наш массив из папки data (значок @/ указывает на папку src/)
+// Импортируем наш массив из папки data (значок @/ указывает на корень проекта)
 import { allWorks } from '@/data/works';
+import styles from './Catalog.module.css';
 
 export default function CatalogPage() {
   const [visibleCount, setVisibleCount] = useState(9);
@@ -15,22 +16,25 @@ export default function CatalogPage() {
   const currentWorks = allWorks.slice(0, visibleCount);
 
   return (
-    <main className="max-w-6xl mx-auto px-4 py-12">
-      <h1 className="text-3xl font-bold text-center mb-10 text-gray-900">Каталог моих работ</h1>
+    <main className={styles.page}>
+      <h1 className={styles.title}>Каталог моих работ</h1>
       {/* Сетка 3 на 3 */}
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+      <div className={styles.grid}>
         {currentWorks.map((work) => (
-          <div
-            key={work.id}
-            className="bg-white rounded-lg shadow-md overflow-hidden border border-gray-100 flex flex-col"
-          >
-            <div className="relative h-64 w-full bg-gray-100">
-              <Image src={work.image} alt={work.title} fill className="object-cover" />
+          <div key={work.id} className={styles.card}>
+            <div className={styles.imageWrapper}>
+              <Image
+                src={work.image}
+                alt={work.title}
+                fill
+                className={styles.image}
+                sizes="(max-width: 768px) 100vw, 33vw"
+              />
             </div>
 
-            <div className="p-5 flex-1 flex flex-col">
-              <h2 className="text-lg font-semibold text-gray-800 mb-2">{work.title}</h2>
-              <p className="text-gray-600 text-sm">{work.description}</p>
+            <div className={styles.content}>
+              <h2 className={styles.cardTitle}>{work.title}</h2>
+              <p className={styles.description}>{work.description}</p>
             </div>
           </div>
         ))}
@@ -38,11 +42,8 @@ export default function CatalogPage() {
 
       {/* Кнопка "Смотреть еще" */}
       {visibleCount < allWorks.length && (
-        <div className="text-center mt-12">
-          <button
-            onClick={handleShowMore}
-            className="px-8 py-3 bg-blue-600 text-white font-medium rounded-lg shadow hover:bg-blue-700 transition-colors cursor-pointer"
-          >
+        <div className={styles.buttonWrapper}>
+          <button onClick={handleShowMore} className={styles.button}>
             Смотреть еще
           </button>
         </div>
