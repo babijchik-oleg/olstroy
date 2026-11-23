@@ -18,7 +18,6 @@
   border-collapse: collapse;
   background-color: #ffffff;
   border-radius: 0.5rem;
-  overflow: hidden;
   box-shadow:
     0 4px 6px -1px rgba(0, 0, 0, 0.1),
     0 2px 4px -1px rgba(0, 0, 0, 0.06);
@@ -26,20 +25,31 @@
 }
 
 .thead {
-  background-color: var(--color-surface);
+  background-color: var(--color-surface, #f9fafb);
 }
 
 .th {
   text-align: left;
   padding: 1rem 1.25rem;
-  font-size: 1rem;
+  font-size: 0.95rem;
   font-weight: 600;
   color: #111827;
-  border-bottom: 2px solid #e5e5e5;
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.thPrice,
+.tdPrice {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.tdUnit {
+  white-space: nowrap;
+  color: #4b5563;
 }
 
 .tr {
-  transition: background-color 0.2s;
+  transition: background-color 0.2s ease;
   border-bottom: 1px solid #f3f4f6;
 }
 
@@ -52,23 +62,102 @@
 }
 
 .tr:hover {
-  background-color: var(--color-surface);
+  background-color: var(--color-surface, #f3f4f6);
 }
 
 .td {
   padding: 1rem 1.25rem;
   font-size: 0.95rem;
+  line-height: 1.4;
   color: #1f2937;
-  border-bottom: 1px solid #f3f4f6;
+  vertical-align: top;
 }
 
+/* Планшеты и небольшие экраны */
 @media (max-width: 768px) {
-  .table {
-    font-size: 0.875rem;
-  }
-
   .th,
   .td {
-    padding: 0.75rem 1rem;
+    padding: 0.75rem 0.875rem;
+    font-size: 0.875rem;
+  }
+}
+
+/* Мобильные экраны: превращаем строки в карточки */
+@media (max-width: 640px) {
+  .title {
+    font-size: 1.5rem;
+    line-height: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .table,
+  .tbody {
+    display: block;
+    width: 100%;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+  }
+
+  .thead {
+    display: none;
+  }
+
+  .tr {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    background-color: #ffffff !important;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.75rem;
+    padding: 1rem;
+    margin-bottom: 0.75rem;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+  }
+
+  .tr:last-child {
+    margin-bottom: 0;
+  }
+
+  .td {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    padding: 0;
+    border: none;
+    font-size: 0.925rem;
+  }
+
+  /* Название работы — главный заголовок карточки */
+  .tdName {
+    display: block;
+    font-weight: 600;
+    font-size: 1rem;
+    color: #111827;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.125rem;
+    border-bottom: 1px solid #f3f4f6;
+  }
+
+  .tdUnit,
+  .tdPrice {
+    white-space: normal;
+    text-align: right;
+  }
+
+  .tdPrice {
+    font-weight: 700;
+    color: #111827;
+  }
+
+  /* Подписи полей на мобильных */
+  .td[data-label]::before {
+    content: attr(data-label);
+    font-size: 0.825rem;
+    font-weight: 500;
+    color: #6b7280;
+    text-align: left;
+    flex-shrink: 0;
   }
 }

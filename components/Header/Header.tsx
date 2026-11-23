@@ -26,16 +26,13 @@ export default function Header() {
           centred menu, so it is aligned to the right instead. */}
         <nav className={styles.nav}>
           <Link href="/" className={styles.navLink}>
-            Home
-          </Link>
-          <Link href="/aboutUs" className={styles.navLink}>
-            About Us
+            Начало
           </Link>
           <Link href="/catalog" className={styles.navLink}>
-            Catalog
+            Проекти
           </Link>
           <Link href="/price" className={styles.navLink}>
-            Price
+            Цени
           </Link>
         </nav>
       </div>

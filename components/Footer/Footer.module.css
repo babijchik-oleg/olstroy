@@ -1,24 +1,274 @@
 .footer {
-  padding: 20px;
-  background-color: #f0f0f0;
-  text-align: center;
-  font-size: 14px;
-  color: #555;
-  border-top: 1px solid #ddd;
+  padding: 3rem 1.5rem 1.5rem;
+  background-color: #f4f4fd;
+  color: #666666;
+  font-size: 0.875rem;
+  border-top: 1px solid #e5e5e5;
 }
 
-.wrap {
+.content {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Верхний CTA-блок */
+.ctaBox {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 1rem;
+  padding: 1.75rem;
+  margin-bottom: 3rem;
   display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  box-shadow: 0 4px 20px rgba(15, 23, 42, 0.04);
+}
+
+.ctaTitle {
+  font-family: 'Manrope', sans-serif;
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: #1a1a1a;
+  margin: 0 0 0.5rem;
+  line-height: 1.3;
+}
+
+.ctaSubtitle {
+  color: #555555;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  margin: 0;
+  max-width: 560px;
+}
+
+.ctaButtons {
+  display: flex;
+  align-items: center;
+  gap: 0.875rem;
+}
+
+.iconBtn {
+  display: inline-flex;
+  align-items: center;
   justify-content: center;
-  gap: 20px;
-}
-
-.footer a {
-  color: #226ec5;
-  font-weight: 600;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  font-size: 0.9rem;
   text-decoration: none;
+  color: #ffffff;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.2s ease,
+    opacity 0.2s ease;
 }
 
-.footer a:hover {
-  text-decoration: underline;
+.iconBtn:hover {
+  transform: translateY(-2px);
+  opacity: 0.94;
+  box-shadow: 0 6px 14px rgba(15, 23, 42, 0.14);
+}
+
+.ctaBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  height: 44px;
+  padding: 0 1.25rem;
+  border-radius: 0.625rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  text-decoration: none;
+  color: #ffffff;
+  transition:
+    transform 0.15s ease,
+    opacity 0.2s ease;
+}
+
+.ctaBtn:hover {
+  opacity: 0.92;
+  transform: translateY(-1px);
+}
+
+.callBtn {
+  background-color: #226ec5;
+}
+
+.viberBtn {
+  background-color: #7360f2;
+}
+
+.telegramBtn {
+  background-color: #24a1de;
+}
+
+/* Основная сетка футера */
+.top {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.brand {
+  flex: 1 1 240px;
+}
+
+.brandName {
+  font-family: 'Manrope', sans-serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: #226ec5;
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+
+.brandAccent {
+  color: #1a1a1a;
+  font-weight: 400;
+}
+
+.brandTagline {
+  color: #666666;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  max-width: 280px;
+  margin: 0;
+}
+
+.contacts,
+.socials {
+  flex: 1 1 220px;
+}
+
+.sectionTitle {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #1a1a1a;
+  margin: 0 0 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.sectionTitle::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background-color: #226ec5;
+  border-radius: 50%;
+}
+
+.contactLinks {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.contactLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #4b5563;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s;
+}
+
+.contactLink:hover {
+  color: #226ec5;
+}
+
+.contactIcon {
+  flex-shrink: 0;
+  color: #226ec5;
+}
+
+/* Карточка Facebook */
+.fbCard {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.625rem 1rem 0.625rem 0.625rem;
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.75rem;
+  text-decoration: none;
+  transition:
+    border-color 0.2s,
+    box-shadow 0.2s;
+}
+
+.fbCard:hover {
+  border-color: #226ec5;
+  box-shadow: 0 4px 12px rgba(34, 110, 197, 0.1);
+}
+
+.fbIconWrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background-color: #1877f2;
+  flex-shrink: 0;
+}
+
+.fbIcon {
+  fill: #ffffff;
+  color: #ffffff;
+}
+
+.fbInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.fbTitle {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+.fbSub {
+  font-size: 0.75rem;
+  color: #666666;
+}
+
+.bottom {
+  text-align: center;
+  padding-top: 1.5rem;
+  border-top: 1px solid #e5e5e5;
+}
+
+.bottom p {
+  color: #666666;
+  font-size: 0.75rem;
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .footer {
+    padding: 4rem 2rem 2rem;
+  }
+
+  .ctaBox {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 2.25rem 2.5rem;
+  }
+
+  .ctaButtons {
+    justify-content: flex-end;
+    flex-shrink: 0;
+  }
 }
