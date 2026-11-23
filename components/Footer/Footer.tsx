@@ -79,7 +79,7 @@ export function Footer() {
                 +359 876 101 679
               </a>
               <a
-                href="olstroy20@gmail.com"
+                href="mailto:olstroy20@gmail.com"
                 className={styles.contactLink}
                 aria-label="Изпратете имейл"
               >
