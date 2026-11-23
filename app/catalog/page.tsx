@@ -30,7 +30,7 @@ export default function CatalogPage() {
 
   return (
     <main className={styles.page}>
-      <h1 className={styles.title}>Каталог моих работ</h1>
+      <h1 className={styles.title}>Моите проекти</h1>
       {/* Сетка 3 на 3 */}
       <div className={styles.grid}>
         {currentWorks.map((work) => (
@@ -68,7 +68,7 @@ export default function CatalogPage() {
       {visibleCount < allWorks.length && (
         <div className={styles.buttonWrapper}>
           <button onClick={handleShowMore} className={styles.button}>
-            Смотреть еще
+            Вижте още
           </button>
         </div>
       )}

@@ -137,7 +137,7 @@ export default function HomePage() {
         </div>
 
         <div className={styles.projectsGrid}>
-          {featuredProjects.map((project) => (
+          {featuredProjects.map((project, index) => (
             <article key={project.id} className={styles.projectCard}>
               <Image
                 src={project.image}
@@ -145,6 +145,7 @@ export default function HomePage() {
                 width={600}
                 height={400}
                 className={styles.projectImage}
+                loading={index === 0 ? 'eager' : 'lazy'}
               />
               <div className={styles.projectBody}>
                 <span className={styles.projectTag}>{project.tag}</span>
