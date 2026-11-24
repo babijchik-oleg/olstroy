@@ -37,6 +37,10 @@
   border-bottom: 2px solid #e5e7eb;
 }
 
+.tbody {
+  vertical-align: top;
+}
+
 .thPrice,
 .tdPrice {
   text-align: right;
@@ -46,6 +50,24 @@
 .tdUnit {
   white-space: nowrap;
   color: #4b5563;
+}
+
+.categoryRow {
+  background-color: var(--color-surface, #f9fafb);
+}
+
+.categoryCell {
+  text-align: left;
+  padding: 1rem 1.25rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: #111827;
+  border-bottom: 2px solid #e5e7eb;
+  background-color: var(--color-surface, #f9fafb);
+}
+
+.tdName {
+  font-weight: 500;
 }
 
 .tr {
@@ -160,4 +182,29 @@
     text-align: left;
     flex-shrink: 0;
   }
+
+  /* Заголовки категорий на мобильных */
+  .categoryRow {
+    display: block;
+    background: transparent;
+    border: none;
+  }
+
+  .categoryCell {
+    display: block;
+    padding: 1rem 0 0.5rem;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: #111827;
+    border-bottom: 2px solid #e5e7eb;
+    background: transparent;
+  }
+}
+
+.disclaimer {
+  margin-top: 1.5rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: #6b7280;
+  text-align: center;
 }

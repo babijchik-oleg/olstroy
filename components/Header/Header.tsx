@@ -1,17 +1,35 @@
 'use client';
 
+import { KeyboardEvent, useEffect, useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import styles from './Header.module.css';
 
 export default function Header() {
   const pathname = usePathname();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const getHeaderBgClass = () => {
     if (pathname === '/') {
       return styles.home;
     }
     return styles.other;
+  };
+
+  useEffect(() => {
+    if (!isMenuOpen) return;
+
+    const handleKeyDown = (event: globalThis.KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setIsMenuOpen(false);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isMenuOpen]);
+
+  const handleCloseMenu = () => {
+    setIsMenuOpen(false);
   };
 
   return (
@@ -35,7 +53,33 @@ export default function Header() {
             Цени
           </Link>
         </nav>
+
+        <button
+          type="button"
+          className={styles.burgerBtn}
+          aria-expanded={isMenuOpen}
+          aria-controls="mobile-nav-menu"
+          aria-label={isMenuOpen ? 'Затвори менюто' : 'Отвори менюто'}
+          onClick={() => setIsMenuOpen((prev) => !prev)}
+        >
+          <span className={`${styles.burgerLine} ${isMenuOpen ? styles.burgerLineTopOpen : ''}`} />
+          <span className={`${styles.burgerLine} ${isMenuOpen ? styles.burgerLineMidOpen : ''}`} />
+          <span className={`${styles.burgerLine} ${isMenuOpen ? styles.burgerLineBotOpen : ''}`} />
+        </button>
       </div>
+      {isMenuOpen && (
+        <nav id="mobile-nav-menu" className={styles.mobileNav} aria-label="Мобилна навигация">
+          <Link href="/" className={styles.mobileNavLink} onClick={handleCloseMenu}>
+            Начало
+          </Link>
+          <Link href="/catalog" className={styles.mobileNavLink} onClick={handleCloseMenu}>
+            Проекти
+          </Link>
+          <Link href="/price" className={styles.mobileNavLink} onClick={handleCloseMenu}>
+            Цени
+          </Link>
+        </nav>
+      )}
     </header>
   );
 }
